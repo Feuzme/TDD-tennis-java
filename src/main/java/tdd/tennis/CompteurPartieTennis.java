@@ -15,7 +15,7 @@ public class CompteurPartieTennis {
 	 * @return une nouvelle partie.
 	 */
 	public PartieDeTennis nouvellePartie(JoueurDeTennis joueur1, JoueurDeTennis joueur2) {
-		return null;
+		return new PartieDeTennis(joueur1, joueur2);
 	}
 	
 	/**
@@ -25,6 +25,15 @@ public class CompteurPartieTennis {
 	 * @return La partie avec les nouveaux scores.
 	 */
 	public PartieDeTennis joueurGagne(PartieDeTennis partie, JoueurDeTennis gagnant) {
+		ScoreTennis nvScoreTennis = new ScoreTennis();
+		
+		nvScoreTennis.setPoints(15);
+		
+		System.out.println(gagnant + " " + partie.getScoreJoueur1());
+		if(gagnant == partie.getJoueur1()) 
+			partie.setScoreJoueur1(nvScoreTennis);		
+		if(gagnant == partie.getJoueur2())
+			partie.setScoreJoueur2(nvScoreTennis);
 		return partie;
 	}
 }
