@@ -39,8 +39,11 @@ public class CompteurPartieTennis {
 			if (partie.getScoreJoueur1().getPoints() == 30)
 				nvScoreTennis.setPoints(40);
 			
-			if(partie.getScoreJoueur1().getPoints() == 40) {
-				nvScoreTennis.setJeux(partie.getScoreJoueur1().getJeux() + 1);
+			if(partie.getScoreJoueur1().getPoints() == 40) {				
+				if(partie.getScoreJoueur2().getPoints() == 40)
+					nvScoreTennis.setAvantage(true);
+				else
+					nvScoreTennis.setJeux(partie.getScoreJoueur1().getJeux() + 1);
 			}				
 			
 			partie.setScoreJoueur1(nvScoreTennis);

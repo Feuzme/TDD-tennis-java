@@ -31,14 +31,8 @@ public class PartieDeTennis {
 	public JoueurDeTennis getJoueur1() {
 		return joueur1;
 	}
-	public void setJoueur1(JoueurDeTennis joueur1) {
-		this.joueur1 = joueur1;
-	}
 	public JoueurDeTennis getJoueur2() {
 		return joueur2;
-	}
-	public void setJoueur2(JoueurDeTennis joueur2) {
-		this.joueur2 = joueur2;
 	}
 	public ScoreTennis getScoreJoueur1() {
 		return scoreJoueur1;

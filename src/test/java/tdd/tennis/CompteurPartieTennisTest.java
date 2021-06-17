@@ -3,6 +3,7 @@ package tdd.tennis;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -119,15 +120,25 @@ class CompteurPartieTennisTest {
 	@Test
 	@DisplayName("si le joueur est à 40 point et gagne alors il gagne le jeu")
 	void test_gagne_jeu() {
+		partie.getScoreJoueur1().setPoints(40);		
+		partie = compteur.joueurGagne(partie, partie.getJoueur1());		
+		assertEquals(1, partie.getScoreJoueur1().getJeux());
+		partie.getScoreJoueur1().setPoints(0);
+		
+		partie.getScoreJoueur2().setPoints(40);
+		partie = compteur.joueurGagne(partie, partie.getJoueur2());
+		assertEquals(1, partie.getScoreJoueur2().getJeux());
+	}
+	
+	@Test
+	@DisplayName("Si les deux joueurs sont a egalité a 40 points, si aucun joueur a un avantage, le joueur qui gagne le point gagne un avantage")
+	void test_egalite_40_gagnant_avantage() {
 		partie.getScoreJoueur1().setPoints(40);
 		partie.getScoreJoueur2().setPoints(40);
 		
 		partie = compteur.joueurGagne(partie, partie.getJoueur1());
 		partie = compteur.joueurGagne(partie, partie.getJoueur2());
 		
-		assertEquals(1, partie.getScoreJoueur1().getJeux());
-		assertEquals(1, partie.getScoreJoueur2().getJeux());
+		assertTrue(partie.getScoreJoueur1().isAvantage());
 	}
-	
-	
 }
