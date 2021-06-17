@@ -115,4 +115,19 @@ class CompteurPartieTennisTest {
 		partie = compteur.joueurGagne(partie, partie.getJoueur2());
 		assertEquals(40, partie.getScoreJoueur2().getPoints());
 	}
+	
+	@Test
+	@DisplayName("si le joueur est à 40 point et gagne alors il gagne le jeu")
+	void test_gagne_jeu() {
+		partie.getScoreJoueur1().setPoints(40);
+		partie.getScoreJoueur2().setPoints(40);
+		
+		partie = compteur.joueurGagne(partie, partie.getJoueur1());
+		partie = compteur.joueurGagne(partie, partie.getJoueur2());
+		
+		assertEquals(1, partie.getScoreJoueur1().getJeux());
+		assertEquals(1, partie.getScoreJoueur2().getJeux());
+	}
+	
+	
 }

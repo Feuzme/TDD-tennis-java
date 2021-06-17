@@ -49,6 +49,7 @@ Les joueurs : Il possède un nom.
 
 * L'utilisateur peut notifier qu'un Joueur a gagné un point.
 * Quand un joueur gagne un point, il passe de 0 à 15. Puis de 15 à 30. Puis de 30 à 40.
+* si le joueur est à 40 point et gagne alors il gagne le jeu
 * Si les deux joueurs sont a egalité a 40 points, si aucun joueur a un avantage, le joueur qui gagne le point gagne un avantage.
 * Si les deux joueurs sont a egalité a 40 points, si le perdant a un avantage, alors il le perd.
 * Si les deux joueurs sont a egalité a 40 points, si le gagnant a un avantage, alors il gagne le jeu.
